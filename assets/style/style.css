@@ -1,6 +1,10 @@
 body { 
-    background: #D8D9D7;
+    background: #0D0D0D;
 
+}
+
+.calculator {
+    position: relative;
 }
 
 .container {
@@ -15,31 +19,109 @@ body {
 
 .calculator-box {
     max-width: 450px;
-    background: #737373;
+    background: #E4EEF2;
+    position: relative;
     box-sizing: border-box;
     margin: 30px auto;
     padding: 15px;
-    height: 560px;
     border-radius: 6px;
     box-shadow: 3px 3px 10px #808080c2;
+}
+
+
+.visor-and-button {
+    display: flex;
+    padding: 0 7px;
+    height: 60px;
+    margin: 30px auto;
+
 }
 
 #visor {
     width: 100%;
     max-width: 320px;
-    margin: 0 auto;
     display: block;
+    font-size: 1.2rem;
     box-sizing: border-box;
+    border-radius: 3px;
+    text-align: center;
+    font-family: 'Turret Road', cursive;
+    color: #E4EEF2;
     padding: 5px;
-    height: 35px;
+    height: 100%;
     background: #212126;
-    border: 1px solid grey;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+#visor::placeholder {
+    color: #E4EEF2;
+    text-align: center;
+}
+
+#visor[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+#visor[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+
+#result {
+    max-width: 203px;
+    width: auto;
+    background: transparent;
+    border: none;
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-align: center;
+
+}
+
+
+#result::placeholder {
+    color: #F2441D;
+    text-align: center;
+}
+
+.operations { 
+    width: 100%;
+    margin: 50px 0 0 0;
+}
+
+.operations ul {
+    display: flex;
+    padding: 0 5px;
+    justify-content: space-between; 
+}
+
+.operations ul li {
+    padding: 10px;
+    background: #F2441D;
+    border-radius: 5px;
+    width: 25%;
+    font-size: 1.3rem;
+    box-sizing: border-box;
+    text-align: center;
+    color: #fff;
+    height: 41px;
+    margin: 0 3px;
+    transition: .3s ease-in-out;
+    cursor: pointer;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.operations ul li svg {
+    fill: #fff;    
+    width: 18px;
 }
 
 .number {
     width: 100%;
-    margin-top: 45px;
-
+    margin-top: 25px;
 }
 
 .number ul {
@@ -50,9 +132,69 @@ body {
 }
 
 .number ul li {
-    width: 33.333%;
-    padding: 15px;
+    width: calc(33.333% - 9px);
+    padding: 25px 10px;
     box-sizing: border-box;
+    box-shadow: 1px 1px 5px #bebebe;
+    margin: 0 3px 3px 3px;
     background: #fff;
-    border: 1px solid red;
+    transition: .3s ease-in-out;
+    cursor: pointer;    
+    border-radius: 5px;
+    font-family: 'Turret Road', cursive;
+}
+
+.number ul li#featured {
+    background: #29A7D9;
+    color: #fff;
+}
+
+.number ul li#featured svg { 
+    height: 18px;
+    fill: #fff;
+}
+
+.number ul li:not(#featured) svg {
+    height: 18px;
+    fill: #F2441D;
+}
+
+.number ul li#featured:hover {
+    background: #45bdec;
+}
+
+.operations ul li:hover,  .number ul li#historic:hover {
+    background:  #F25E3D;
+}
+
+.number ul li#historic {
+    width: 100%;
+    margin: 25px 7px;
+    background: #F2441D;
+    color: #fff;
+    transition: .3s ease-in-out;
+    cursor: pointer;    
+}
+
+.number ul li:hover {
+    background: #C6C5D9;
+    box-shadow: 1px 1px 2px #dbdbdb;
+
+}
+
+.historic {
+    position: absolute;
+    height: 170px;
+    background: #C6C5D9;
+    top: calc(50% - 85px);
+    left: 0px;
+    border-radius: 5px 0 0 5px;
+    width: 350px;
+    z-index: -1;
+    transition: .3s ease-in-out;
+}
+
+.historic.active {
+    transform: translateX(-100%);
+
 }
