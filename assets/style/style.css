@@ -31,15 +31,14 @@ body {
 
 .visor-and-button {
     display: flex;
+    flex-direction: column;
     padding: 0 7px;
-    height: 60px;
     margin: 30px auto;
 
 }
 
 #visor {
     width: 100%;
-    max-width: 320px;
     display: block;
     font-size: 1.2rem;
     box-sizing: border-box;
@@ -48,7 +47,7 @@ body {
     font-family: 'Turret Road', cursive;
     color: #E4EEF2;
     padding: 5px;
-    height: 100%;
+    height: 60px;
     background: #212126;
     border: 1px solid rgb(255, 255, 255);
 }
@@ -69,12 +68,12 @@ body {
 }
 
 #result {
-    max-width: 203px;
     width: auto;
     background: transparent;
     border: none;
     font-weight: 700;
     font-size: 1.3rem;
+    padding: 10px 0;
     text-align: center;
 
 }
@@ -87,7 +86,7 @@ body {
 
 .operations { 
     width: 100%;
-    margin: 50px 0 0 0;
+    margin: 30px 0 0 0;
 }
 
 .operations ul {
@@ -184,17 +183,19 @@ body {
 
 .historic {
     position: absolute;
-    height: 170px;
+    height: calc(100% - 20px);
     background: #C6C5D9;
-    top: calc(50% - 85px);
-    left: 0px;
-    border-radius: 5px 0 0 5px;
+    top: 10px;
+    right: 0px;
+    border-radius: 0 5px 5px 0;
     width: 350px;
+    box-sizing: border-box;
+    padding: 25px;
     z-index: -1;
     transition: .3s ease-in-out;
 }
 
 .historic.active {
-    transform: translateX(-100%);
+    transform: translateX(100%);
 
 }

@@ -16,16 +16,14 @@ function deleteNumber() {
 
 function showHistoric() {
     $("#historic").click(function(){
-        $(".historic").addClass("active")
+        $(".historic").toggleClass("active")
     })
-    
- 
 }
+
 
 
 $(document).ready(function(){
     addValueToInput();
     deleteNumber();
     showHistoric();
-
 })
